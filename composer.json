@@ -1,0 +1,16 @@
+{
+    "name": "aminin/airbrake-bundle",
+    "description": "Airbrake API v3 integration for Symfony2",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anton Minin",
+            "email": "anton.a.minin@gmail.com"
+        }
+    ],
+    "type": "symfony-bundle",
+    "require": {
+        "symfony/symfony": "^2.8 || ^3.0",
+        "airbrake/phpbrake": "~0.0.12"
+    }
+}
