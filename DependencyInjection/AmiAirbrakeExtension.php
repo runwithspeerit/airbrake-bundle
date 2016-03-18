@@ -43,6 +43,7 @@ class AmiAirbrakeExtension extends Extension
                         'projectId'     => $config['project_id'],
                         'projectKey'    => $config['project_key'],
                         'host'          => $config['host'],
+                        'appVersion'    => $this->getAppVersion($container),
                         'environment'   => $container->getParameter('kernel.environment'),
                         'rootDirectory' => dirname($container->getParameter('kernel.root_dir'))
                     ]]
@@ -76,5 +77,12 @@ class AmiAirbrakeExtension extends Extension
                 )
             );
         }
+    }
+
+    public function getAppVersion(ContainerBuilder $container)
+    {
+        $rootDir = dirname($container->getParameter('kernel.root_dir'));
+
+        return file_exists("$rootDir/REVISION") ? trim(file_get_contents("$rootDir/REVISION")) : null;
     }
 }
