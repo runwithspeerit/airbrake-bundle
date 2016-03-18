@@ -13,7 +13,7 @@ This version of the bundle requires Symfony 2.8+
 Add AmiAirbrakeBundle in your composer.json:
 
 ```shell
-$ composer require ami/airbrake-bundle
+$ composer require aminin/airbrake-bundle
 ```
 
 ### Step 2: Enable the bundle
