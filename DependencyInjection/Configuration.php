@@ -32,7 +32,7 @@ class Configuration implements ConfigurationInterface
                     ->defaultValue('api.airbrake.io')
                 ->end()
                 ->arrayNode('ignored_exceptions')
-                    ->prototype('scalar')
+                    ->prototype('scalar')->end()
                     ->defaultValue(['Symfony\Component\HttpKernel\Exception\HttpException'])
                 ->end()
             ->end()
