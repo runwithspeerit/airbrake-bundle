@@ -1,10 +1,13 @@
 # AmiAirbrakeBundle
 
+[![Build Status](https://api.travis-ci.org/aminin/airbrake-bundle.svg)](https://travis-ci.org/aminin/airbrake-bundle)
+[![Coding Style](https://img.shields.io/badge/phpcs-PSR--2-brightgreen.svg)](http://www.php-fig.org/psr/psr-2/)
+
 [Airbrake.io](https://airbrake.io) & [Errbit](https://github.com/errbit/errbit) integration for Symfony2.
 
 ## Prerequisites
 
-This version of the bundle requires Symfony 2.8+
+This version of the bundle requires Symfony 2.3+
 
 ## Installation
 
