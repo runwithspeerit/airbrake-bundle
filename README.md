@@ -23,7 +23,7 @@ $ composer require aminin/airbrake-bundle
 
 Enable the bundle in the kernel:
 
-```
+```php
 <?php
 // app/AppKernel.php
 
@@ -40,7 +40,7 @@ public function registerBundles()
 
 Add the following configuration to your `config.yml` file
 
-```
+```yml
 # app/config/config.yml
 ami_airbrake:
     project_id:  YOUR-PROJECT-ID
@@ -49,7 +49,7 @@ ami_airbrake:
 
 ## Configuration reference
 
-```
+```yml
 ami_airbrake:
     # This parameter is required
     # For Errbit the exact value of project_id doesn't matter
@@ -76,8 +76,4 @@ Once configured, bundle will automatically send exceptions/errors to airbrake se
 
 ## License
 
-This bundle is under the MIT license. See the complete license in the bundle:
-
-```
-Resources/meta/LICENSE
-```
+This bundle is under the MIT license. See the complete license in the [Resources/meta/LICENSE](Resources/meta/LICENSE)
