@@ -1,6 +1,6 @@
 <?php
 
-namespace Ami\AirbrakeBundle\EventListener;
+namespace Speerit\AirbrakeBundle\EventListener;
 
 use Airbrake\Notifier;
 use Symfony\Component\Console\Event\ConsoleExceptionEvent;
@@ -20,7 +20,7 @@ class ExceptionListener
 
     /**
      * @param Notifier $notifier
-     * @param array    $ignoredExceptions
+     * @param array $ignoredExceptions
      */
     public function __construct(Notifier $notifier, array $ignoredExceptions = [])
     {

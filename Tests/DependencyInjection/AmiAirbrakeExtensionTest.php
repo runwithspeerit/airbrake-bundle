@@ -1,14 +1,11 @@
 <?php
 
-namespace Ami\AirbrakeBundle\DependencyInjection;
+namespace Speerit\AirbrakeBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
-use Symfony\Component\DependencyInjection\Reference;
-use Ami\AirbrakeBundle\DependencyInjection\AmiAirbrakeExtension;
 
-class AmiAirbrakeExtensionTest extends \PHPUnit_Framework_TestCase
+class SpeeritAirbrakeExtensionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @var ContainerBuilder
@@ -16,44 +13,52 @@ class AmiAirbrakeExtensionTest extends \PHPUnit_Framework_TestCase
     private $container;
 
     /**
-     * @var AmiAirbrakeExtension
+     * @var SpeeritAirbrakeExtension
      */
     private $extension;
 
-    protected function setUp()
+    public function testEnableSpeeritAirbrakeNotifier()
     {
-        $this->container = new ContainerBuilder(new ParameterBag([
-            'kernel.root_dir'    => __DIR__,
-            'kernel.bundles'     => ['AmiAirbrakeBundle' => true],
-            'kernel.environment' => 'test',
-        ]));
-        $this->extension = new AmiAirbrakeExtension();
-    }
-
-    protected function tearDown()
-    {
-        unset($this->container, $this->extension);
-    }
-
-    public function testEnableAmiAirbrakeNotifier()
-    {
-        $config = ['ami_airbrake' => [
-            'project_id' => 42,
-            'project_key' => 'foo-bar',
-        ]];
+        $config = [
+            'ami_airbrake' => [
+                'project_id' => 42,
+                'project_key' => 'foo-bar',
+            ],
+        ];
         $this->extension->load($config, $this->container);
 
         $this->assertTrue($this->container->hasDefinition('ami_airbrake.notifier'));
     }
 
-    public function testDisableAmiAirbrakeNotifier()
+    public function testDisableSpeeritAirbrakeNotifier()
     {
-        $config = ['ami_airbrake' => [
-            'project_id' => 42,
-            'project_key' => null,
-        ]];
+        $config = [
+            'ami_airbrake' => [
+                'project_id' => 42,
+                'project_key' => null,
+            ],
+        ];
         $this->extension->load($config, $this->container);
 
         $this->assertFalse($this->container->hasDefinition('ami_airbrake.notifier'));
+    }
+
+    protected function setUp()
+    {
+        $this->container = new ContainerBuilder(
+            new ParameterBag(
+                [
+                    'kernel.root_dir' => __DIR__,
+                    'kernel.bundles' => ['SpeeritAirbrakeBundle' => true],
+                    'kernel.environment' => 'test',
+                ]
+            )
+        );
+        $this->extension = new SpeeritAirbrakeExtension();
+    }
+
+    protected function tearDown()
+    {
+        unset($this->container, $this->extension);
     }
 }

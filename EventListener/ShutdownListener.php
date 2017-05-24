@@ -1,6 +1,6 @@
 <?php
 
-namespace Ami\AirbrakeBundle\EventListener;
+namespace Speerit\AirbrakeBundle\EventListener;
 
 use Airbrake\Notifier;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
@@ -19,7 +19,7 @@ class ShutdownListener
     {
         $this->notifier = $notifier;
     }
-    
+
     /**
      * Register a function for execution on shutdown
      *
@@ -43,7 +43,7 @@ class ShutdownListener
             return;
         }
 
-        if (!($error['type'] & (E_ERROR|E_PARSE|E_CORE_ERROR|E_COMPILE_ERROR|E_USER_ERROR|E_RECOVERABLE_ERROR))) {
+        if (!($error['type'] & (E_ERROR | E_PARSE | E_CORE_ERROR | E_COMPILE_ERROR | E_USER_ERROR | E_RECOVERABLE_ERROR))) {
             return;
         }
 

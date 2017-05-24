@@ -1,9 +1,4 @@
-# AmiAirbrakeBundle
-
-[![Build Status](https://api.travis-ci.org/aminin/airbrake-bundle.svg)](https://travis-ci.org/aminin/airbrake-bundle)
-[![Coding Style](https://img.shields.io/badge/phpcs-PSR--2-brightgreen.svg)](http://www.php-fig.org/psr/psr-2/)
-
-[Airbrake.io](https://airbrake.io) & [Errbit](https://github.com/errbit/errbit) integration for Symfony2.
+# SpeeritAirbrakeBundle
 
 ## Prerequisites
 
@@ -11,12 +6,12 @@ This version of the bundle requires Symfony 2.3+
 
 ## Installation
 
-### Step 1: Download AmiAirbrakeBundle using composer
+### Step 1: Download SpeeritAirbrakeBundle using composer
 
-Add AmiAirbrakeBundle in your composer.json:
+Add SpeeritAirbrakeBundle in your composer.json:
 
 ```shell
-$ composer require aminin/airbrake-bundle
+$ composer require speerit/airbrake-bundle
 ```
 
 ### Step 2: Enable the bundle
@@ -31,18 +26,18 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new Ami\AirbrakeBundle\AmiAirbrakeBundle(),
+        new Speerit\AirbrakeBundle\SpeeritAirbrakeBundle(),
     );
 }
 ```
 
-### Step 3: Configure the AmiAirbrakeBundle
+### Step 3: Configure the SpeeritAirbrakeBundle
 
 Add the following configuration to your `config.yml` file
 
 ```yml
 # app/config/config.yml
-ami_airbrake:
+speerit_airbrake:
     project_id:  YOUR-PROJECT-ID
     project_key: YOUR-API-KEY
 ```
@@ -50,7 +45,7 @@ ami_airbrake:
 ## Configuration reference
 
 ```yml
-ami_airbrake:
+speerit_airbrake:
     # This parameter is required
     # For Errbit the exact value of project_id doesn't matter
     project_id: YOUR-PROJECT-ID

@@ -1,6 +1,6 @@
 <?php
 
-namespace Ami\AirbrakeBundle\DependencyInjection;
+namespace Speerit\AirbrakeBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -14,7 +14,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
  *
  * To learn more see {@link http://symfony.com/doc/current/cookbook/bundles/extension.html}
  */
-class AmiAirbrakeExtension extends Extension
+class SpeeritAirbrakeExtension extends Extension
 {
     /**
      * {@inheritdoc}
@@ -24,7 +24,7 @@ class AmiAirbrakeExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
         $container->setParameter('ami_airbrake.project_id', $config['project_id']);
@@ -39,14 +39,16 @@ class AmiAirbrakeExtension extends Extension
                 'ami_airbrake.notifier',
                 new Definition(
                     $container->getParameter('ami_airbrake.notifier.class'),
-                    [[
-                        'projectId'     => $config['project_id'],
-                        'projectKey'    => $config['project_key'],
-                        'host'          => $config['host'],
-                        'appVersion'    => $this->getAppVersion($container),
-                        'environment'   => $container->getParameter('kernel.environment'),
-                        'rootDirectory' => dirname($container->getParameter('kernel.root_dir'))
-                    ]]
+                    [
+                        [
+                            'projectId' => $config['project_id'],
+                            'projectKey' => $config['project_key'],
+                            'host' => $config['host'],
+                            'appVersion' => $this->getAppVersion($container),
+                            'environment' => $container->getParameter('kernel.environment'),
+                            'rootDirectory' => dirname($container->getParameter('kernel.root_dir')),
+                        ],
+                    ]
                 )
             );
 

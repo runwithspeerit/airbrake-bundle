@@ -1,6 +1,6 @@
 <?php
 
-namespace Ami\AirbrakeBundle\DependencyInjection;
+namespace Speerit\AirbrakeBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,25 +18,24 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('ami_airbrake');
+        $rootNode = $treeBuilder->root('speerit_airbrake');
 
         $rootNode
             ->children()
-                ->scalarNode('project_id')
-                    ->isRequired()
-                ->end()
-                ->scalarNode('project_key')
-                    ->isRequired()
-                ->end()
-                ->scalarNode('host')
-                    ->defaultValue('api.airbrake.io')
-                ->end()
-                ->arrayNode('ignored_exceptions')
-                    ->prototype('scalar')->end()
-                    ->defaultValue(['Symfony\Component\HttpKernel\Exception\HttpException'])
-                ->end()
+            ->scalarNode('project_id')
+            ->isRequired()
             ->end()
-        ;
+            ->scalarNode('project_key')
+            ->isRequired()
+            ->end()
+            ->scalarNode('host')
+            ->defaultValue('api.airbrake.io')
+            ->end()
+            ->arrayNode('ignored_exceptions')
+            ->prototype('scalar')->end()
+            ->defaultValue(['Symfony\Component\HttpKernel\Exception\HttpException'])
+            ->end()
+            ->end();
 
         return $treeBuilder;
     }

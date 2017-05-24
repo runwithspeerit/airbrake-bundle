@@ -1,9 +1,9 @@
 parameters:
   ami_airbrake.notifier.class: Airbrake\Notifier
-  ami_airbrake.exception_listener.class: Ami\AirbrakeBundle\EventListener\ExceptionListener
-  ami_airbrake.shutdown_listener.class: Ami\AirbrakeBundle\EventListener\ShutdownListener
+  ami_airbrake.exception_listener.class: Speerit\AirbrakeBundle\EventListener\ExceptionListener
+  ami_airbrake.shutdown_listener.class: Speerit\AirbrakeBundle\EventListener\ShutdownListener
 
 services:
-#    ami_airbrake.example:
-#        class: Ami\AirbrakeBundle\Example
+#    speerit_airbrake.example:
+#        class: Speerit\AirbrakeBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
