@@ -1,5 +1,7 @@
 # SpeeritAirbrakeBundle
 
+This is a fork of the original https://github.com/aminin/airbrake-bundle bundle big thanks to its developer/s
+
 ## Prerequisites
 
 This version of the bundle requires Symfony 2.3+
