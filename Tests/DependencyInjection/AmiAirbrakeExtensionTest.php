@@ -20,27 +20,27 @@ class SpeeritAirbrakeExtensionTest extends \PHPUnit_Framework_TestCase
     public function testEnableSpeeritAirbrakeNotifier()
     {
         $config = [
-            'ami_airbrake' => [
+            'speerit_airbrake' => [
                 'project_id' => 42,
                 'project_key' => 'foo-bar',
             ],
         ];
         $this->extension->load($config, $this->container);
 
-        $this->assertTrue($this->container->hasDefinition('ami_airbrake.notifier'));
+        $this->assertTrue($this->container->hasDefinition('speerit_airbrake.notifier'));
     }
 
     public function testDisableSpeeritAirbrakeNotifier()
     {
         $config = [
-            'ami_airbrake' => [
+            'speerit_airbrake' => [
                 'project_id' => 42,
                 'project_key' => null,
             ],
         ];
         $this->extension->load($config, $this->container);
 
-        $this->assertFalse($this->container->hasDefinition('ami_airbrake.notifier'));
+        $this->assertFalse($this->container->hasDefinition('speerit_airbrake.notifier'));
     }
 
     protected function setUp()

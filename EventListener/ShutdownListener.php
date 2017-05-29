@@ -3,8 +3,12 @@
 namespace Speerit\AirbrakeBundle\EventListener;
 
 use Airbrake\Notifier;
-use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 
+/**
+ * Class ShutdownListener
+ *
+ * @package Speerit\AirbrakeBundle\EventListener
+ */
 class ShutdownListener
 {
     /**
@@ -22,10 +26,8 @@ class ShutdownListener
 
     /**
      * Register a function for execution on shutdown
-     *
-     * @param FilterControllerEvent $event
      */
-    public function register(FilterControllerEvent $event)
+    public function register()
     {
         register_shutdown_function([$this, 'onShutdown']);
     }

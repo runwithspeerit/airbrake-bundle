@@ -27,18 +27,18 @@ class SpeeritAirbrakeExtension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
-        $container->setParameter('ami_airbrake.project_id', $config['project_id']);
-        $container->setParameter('ami_airbrake.project_key', $config['project_key']);
-        $container->setParameter('ami_airbrake.host', $config['host']);
-        $container->setParameter('ami_airbrake.ignored_exceptions', $config['ignored_exceptions']);
+        $container->setParameter('speerit_airbrake.project_id', $config['project_id']);
+        $container->setParameter('speerit_airbrake.project_key', $config['project_key']);
+        $container->setParameter('speerit_airbrake.host', $config['host']);
+        $container->setParameter('speerit_airbrake.ignored_exceptions', $config['ignored_exceptions']);
 
         // Exception Listener
         if ($config['project_key']) {
             // Airbrake notifier
             $container->setDefinition(
-                'ami_airbrake.notifier',
+                'speerit_airbrake.notifier',
                 new Definition(
-                    $container->getParameter('ami_airbrake.notifier.class'),
+                    $container->getParameter('speerit_airbrake.notifier.class'),
                     [
                         [
                             'projectId' => $config['project_id'],
@@ -52,16 +52,25 @@ class SpeeritAirbrakeExtension extends Extension
                 )
             );
 
-            // Exception Listener
+            // Request Exception Listener
             $container->setDefinition(
-                'ami_airbrake.exception_listener',
+                'speerit_airbrake.request_exception_listener',
                 (new Definition(
-                    $container->getParameter('ami_airbrake.exception_listener.class'),
-                    [new Reference('ami_airbrake.notifier'), $config['ignored_exceptions']]
+                    $container->getParameter('speerit_airbrake.request_exception_listener.class'),
+                    [new Reference('speerit_airbrake.notifier'), $config['ignored_exceptions']]
                 ))->addTag(
                     'kernel.event_listener',
                     ['event' => 'kernel.exception', 'method' => 'onKernelException']
-                )->addTag(
+                )
+            );
+
+            // Console Exception Listener
+            $container->setDefinition(
+                'speerit_airbrake.console_exception_listener',
+                (new Definition(
+                    $container->getParameter('speerit_airbrake.console_exception_listener.class'),
+                    [new Reference('speerit_airbrake.notifier'), $config['ignored_exceptions']]
+                ))->addTag(
                     'kernel.event_listener',
                     ['event' => 'console.exception', 'method' => 'onKernelException']
                 )
@@ -69,10 +78,10 @@ class SpeeritAirbrakeExtension extends Extension
 
             // PHP Shutdown Listener
             $container->setDefinition(
-                'ami_airbrake.shutdown_listener',
+                'speerit_airbrake.shutdown_listener',
                 (new Definition(
-                    $container->getParameter('ami_airbrake.shutdown_listener.class'),
-                    [new Reference('ami_airbrake.notifier'), $config['ignored_exceptions']]
+                    $container->getParameter('speerit_airbrake.shutdown_listener.class'),
+                    [new Reference('speerit_airbrake.notifier'), $config['ignored_exceptions']]
                 ))->addTag(
                     'kernel.event_listener',
                     ['event' => 'kernel.controller', 'method' => 'register']

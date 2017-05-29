@@ -4,9 +4,13 @@ namespace Speerit\AirbrakeBundle\EventListener;
 
 use Airbrake\Notifier;
 use Symfony\Component\Console\Event\ConsoleExceptionEvent;
-use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 
-class ExceptionListener
+/**
+ * Class ConsoleExceptionListener
+ *
+ * @package Speerit\AirbrakeBundle\EventListener
+ */
+class ConsoleExceptionListener
 {
     /**
      * @var Notifier
@@ -29,9 +33,9 @@ class ExceptionListener
     }
 
     /**
-     * @param GetResponseForExceptionEvent|ConsoleExceptionEvent $event
+     * @param ConsoleExceptionEvent $event
      */
-    public function onKernelException($event)
+    public function onKernelException(ConsoleExceptionEvent $event)
     {
         $exception = $event->getException();
 
