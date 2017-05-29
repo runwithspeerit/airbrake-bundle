@@ -8,8 +8,6 @@ This is a fork of the original https://github.com/aminin/airbrake-bundle bundle 
 [![Total Downloads](https://poser.pugx.org/speerit/airbrake-bundle/downloads)](https://packagist.org/packages/speerit/airbrake-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/speerit/airbrake-bundle/v/unstable)](https://packagist.org/packages/speerit/airbrake-bundle)
 [![License](https://poser.pugx.org/speerit/airbrake-bundle/license)](https://packagist.org/packages/speerit/airbrake-bundle)
-[![Monthly Downloads](https://poser.pugx.org/speerit/airbrake-bundle/d/monthly)](https://packagist.org/packages/speerit/airbrake-bundle)
-[![Daily Downloads](https://poser.pugx.org/speerit/airbrake-bundle/d/daily)](https://packagist.org/packages/speerit/airbrake-bundle)
 
 ## Prerequisites
 
