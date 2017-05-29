@@ -2,6 +2,15 @@
 
 This is a fork of the original https://github.com/aminin/airbrake-bundle bundle big thanks to its developer/s
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/b478929b-5ec1-4ff8-80f8-32d59ef5e759/small.png)](https://insight.sensiolabs.com/projects/b478929b-5ec1-4ff8-80f8-32d59ef5e759)
+[![Build Status](https://travis-ci.org/runwithspeerit/airbrake-bundle.svg?branch=master)](https://travis-ci.org/runwithspeerit/airbrake-bundle)
+[![Latest Stable Version](https://poser.pugx.org/speerit/airbrake-bundle/v/stable)](https://packagist.org/packages/speerit/airbrake-bundle)
+[![Total Downloads](https://poser.pugx.org/speerit/airbrake-bundle/downloads)](https://packagist.org/packages/speerit/airbrake-bundle)
+[![Latest Unstable Version](https://poser.pugx.org/speerit/airbrake-bundle/v/unstable)](https://packagist.org/packages/speerit/airbrake-bundle)
+[![License](https://poser.pugx.org/speerit/airbrake-bundle/license)](https://packagist.org/packages/speerit/airbrake-bundle)
+[![Monthly Downloads](https://poser.pugx.org/speerit/airbrake-bundle/d/monthly)](https://packagist.org/packages/speerit/airbrake-bundle)
+[![Daily Downloads](https://poser.pugx.org/speerit/airbrake-bundle/d/daily)](https://packagist.org/packages/speerit/airbrake-bundle)
+
 ## Prerequisites
 
 This version of the bundle requires Symfony 2.3+
@@ -21,7 +30,6 @@ $ composer require speerit/airbrake-bundle
 Enable the bundle in the kernel:
 
 ```php
-<?php
 // app/AppKernel.php
 
 public function registerBundles()
