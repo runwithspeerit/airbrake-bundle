@@ -1,6 +1,6 @@
 {
   "name": "speerit/airbrake-bundle",
-  "description": "Airbrake API v3 integration for Symfony2 >=",
+  "description": "Airbrake API v3 integration for Symfony3 >=",
   "license": "MIT",
   "authors": [
     {
@@ -22,11 +22,11 @@
   ],
   "type": "symfony-bundle",
   "require": {
-    "symfony/framework-bundle": "~2.3|~3.0",
+    "symfony/framework-bundle": "~3.0",
     "airbrake/phpbrake": "~0.2.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "^4.8.0",
+    "phpunit/phpunit": "^6.0.0",
     "squizlabs/php_codesniffer": "^2.5.1"
   },
   "autoload": {

@@ -2,10 +2,11 @@
 
 namespace Speerit\AirbrakeBundle\DependencyInjection;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 
-class SpeeritAirbrakeExtensionTest extends \PHPUnit_Framework_TestCase
+class SpeeritAirbrakeExtensionTest extends TestCase
 {
     /**
      * @var ContainerBuilder

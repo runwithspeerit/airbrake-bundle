@@ -11,7 +11,7 @@ This is a fork of the original https://github.com/aminin/airbrake-bundle bundle 
 
 ## Prerequisites
 
-This version of the bundle requires Symfony 2.3+
+This version of the bundle requires Symfony 3.0+
 
 ## Installation
 
