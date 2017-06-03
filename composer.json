@@ -22,6 +22,7 @@
   ],
   "type": "symfony-bundle",
   "require": {
+    "php": "^7.0",
     "symfony/framework-bundle": "~3.0",
     "airbrake/phpbrake": "~0.2.0"
   },
