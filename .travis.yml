@@ -26,6 +26,18 @@ matrix:
       env: SYMFONY_VERSION=3.4.*
     - php: 7.1
       env: SYMFONY_VERSION=4.0.*
+    - php: 7.2
+      env: SYMFONY_VERSION=3.0.*
+    - php: 7.2
+      env: SYMFONY_VERSION=3.1.*
+    - php: 7.2
+      env: SYMFONY_VERSION=3.2.*
+    - php: 7.2
+      env: SYMFONY_VERSION=3.3.*
+    - php: 7.2
+      env: SYMFONY_VERSION=3.4.*
+    - php: 7.2
+      env: SYMFONY_VERSION=4.0.*
 
 install:
   - sh -c 'if [ "$SYMFONY_VERSION" != "" ]; then composer require --dev symfony/symfony=$SYMFONY_VERSION; fi;'
